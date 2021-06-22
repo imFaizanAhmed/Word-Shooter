@@ -32,6 +32,7 @@ const int bradius = 30,Size=15; // ball radius in pixels...
 int A[10][15],B[Size];//arrays to store random alphabets
 char sto_alp[10][15];      //it contain the display alphabets rathen then their number
 int width = 930, height = 660;
+int nrows = 9;
 int byoffset = bradius;
 int sec=60;//sec starts
 int sec_con=0;//sec controler
@@ -555,53 +556,15 @@ void DisplayFunction() {
 	glClear(GL_COLOR_BUFFER_BIT); //Update the colors
 
 	//write your drawing commands here or call your drawing functions...
-	int px=10;//control the location of alphabet in horizental direction
-	for(int i=0;i<Size;i++){					//display the array
-			DrawAlphabet((alphabets)(A[0][i]), px, height-100 , awidth, aheight);
+	int py = 100;
+	for(int j=0; j < nrows; j++){
+		int px = 10;//control the location of alphabet in horizental direction
+		for(int i=0;i<Size;i++){					//display the array
+			DrawAlphabet((alphabets)(A[j][i]), px, height-py , awidth, aheight);
 			px+=60;
+		}
+		py+=60;
 	}
-
-	px=10;
-	for(int j=0;j<Size;j++){
-		DrawAlphabet((alphabets)(A[1][j]), px, height-160 , awidth, aheight);
-		px+=60;
-	}
-	px=10;
-	for(int j=0;j<Size;j++){
-		DrawAlphabet((alphabets)(A[2][j]), px, height-220 , awidth, aheight);
-		px+=60;
-	}
-	px=10;
-	for(int j=0;j<Size;j++){
-		DrawAlphabet((alphabets)(A[3][j]), px, height-280 , awidth, aheight);
-		px+=60;
-	}
-	px=10;
-	for(int j=0;j<Size;j++){
-		DrawAlphabet((alphabets)(A[4][j]), px, height-340 , awidth, aheight);
-		px+=60;
-	}
-	px=10;
-	for(int j=0;j<Size;j++){
-		DrawAlphabet((alphabets)(A[5][j]), px, height-400 , awidth, aheight);
-		px+=60;
-	}
-	px=10;
-	for(int j=0;j<Size;j++){
-		DrawAlphabet((alphabets)(A[6][j]), px, height-460 , awidth, aheight);
-		px+=60;
-	}
-	px=10;
-	for(int j=0;j<Size;j++){
-		DrawAlphabet((alphabets)(A[7][j]), px, height-520 , awidth, aheight);
-		px+=60;
-	}
-	px=10;
-	for(int j=0;j<Size;j++){
-		DrawAlphabet((alphabets)(A[8][j]), px, height-580 , awidth, aheight);
-		px+=60;
-	}
-	
 
 	if(y==nmy){						//control the next ball in mid of endline
 		x=470;
@@ -775,7 +738,7 @@ int main(int argc, char*argv[]) {
 
 	//Dictionary for matching the words. It contains the 370099 words.
 	dictionary = new string[dictionarysize]; 
-	ReadWords("words_alpha.txt", dictionary); // dictionary is an array of strings
+	ReadWords("dictionary.txt", dictionary); // dictionary is an array of strings
 	//Write your code here for filling the canvas with different Alphabets. You can use the Getalphabet function for getting the random alphabets
 	for(int i=0;i<2;i++){					//store the random to display
 		for(int j=0;j<Size;j++){
