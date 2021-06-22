@@ -2,6 +2,9 @@
 This is all like the bubble shooter game except you have to combine the alphabets to create a word in order to pop balls. After Every ball shoots, it check all the possible combinations of words which may be created from the file of about 400k words. 
 
 ## Compilation
+'''
+In order to compile it you have to download CImg.h file from anywhere you want.
+'''
 For the execution purpose, you just have to run make command in the project directory.
 ```bash
 make
